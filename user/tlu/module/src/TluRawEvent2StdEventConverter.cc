@@ -144,6 +144,14 @@ bool TluRawEvent2StdEventConverter::Converting(eudaq::EventSPC d1, eudaq::Standa
   //                                           + " " + std::to_string(d1->GetTimestampEnd() * 1000 - m_runStartTime)
   //                                           + " " + std::to_string(d1->GetTimestampEnd() * 1000 - ts) << std::cout;
 
+  // print time stamps to have a look
+  /*
+  std::cout << "TIMEINFO_TLU: itrg iev framestart frameend " << d1->GetTriggerN()
+	    << " " << d1->GetEventN()
+    	    << " " << ts
+    	    << " " << d1->GetTimestampEnd() * 1000 << std::endl;
+  */
+  
   // Identify the detetor type
   d2->SetDetectorType("TLU");
   d2->SetTag("TRIGGER", d1->GetTag("TRIGGER" , "0"));
