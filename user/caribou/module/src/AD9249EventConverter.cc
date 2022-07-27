@@ -216,7 +216,7 @@ bool AD9249Event2StdEventConverter::Converting(
     d2->SetTimeBegin(0);
     d2->SetTimeEnd(0);
   }
-  d2->SetTriggerN(trig_);
+  //d2->SetTriggerN(trig_);
   trig_++;
 
   // Identify the detetor type
