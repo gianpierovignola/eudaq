@@ -131,7 +131,8 @@ bool AD9249Event2StdEventConverter::Converting(
                 waveforms, timestamp1);
 
   // store time of the run start
-  if(m_runStartTime < 0){
+  //if(m_runStartTime < 0){
+  if(trig_ <= 1){
     m_runStartTime = timestamp0; // just use one of them for now
   }
 
@@ -171,6 +172,9 @@ bool AD9249Event2StdEventConverter::Converting(
                 to_string(max) + (hit ? " HIT" : " --"));
   }
   for (auto &p : amplitudes) {
+    //plane.PushPixel(p.first.first, p.first.second, p.second.first,
+    //                    timestamp0);
+
     if (p.second.first > threshold_trig) {
       // add the seed pixel if not added
       if (!p.second.second) {
@@ -192,10 +196,15 @@ bool AD9249Event2StdEventConverter::Converting(
         }
       }
     }
+
   }
 
   // Add the plane to the StandardEvent
   d2->AddPlane(plane);
+
+  //std::cout << "APTS TIME iev ts0 ts1 " << trig_ << " "
+  //          << timestamp0 - m_runStartTime << " "
+  //          << timestamp1 - m_runStartTime << std::endl;
 
   // use timestamps
   if( m_useTime ){
