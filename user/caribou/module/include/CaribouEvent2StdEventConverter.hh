@@ -42,6 +42,8 @@ namespace eudaq {
     static int threshold_low;
     static std::string m_waveform_filename;
     static std::ofstream m_outfile_waveforms;
+    statit int blStart;
+    static int blEnd;
 };
 
 
